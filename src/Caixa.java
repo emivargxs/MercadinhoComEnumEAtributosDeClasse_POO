@@ -14,7 +14,13 @@ public class Caixa {
 	public Caixa(int tamMaxFila) {
 		idGerador++;			// Gera o novo id
 		this.id = idGerador;	// Atribui o novo id para este caixa
-		this.tamMaxFila = (tamMaxFila > 0)? tamMaxFila : ParametrosSimulacao.TAM_PADRAO_FILA;
+		if (tamMaxFila > 0) {
+		this.tamMaxFila = tamMaxFila;
+		} else {
+    			this.tamMaxFila = ParametrosSimulacao.TAM_PADRAO_FILA;
+		}
+			
+		//this.tamMaxFila = (tamMaxFila > 0)? tamMaxFila : ParametrosSimulacao.TAM_PADRAO_FILA;
 		this.nroClientesNaFila = 0;
 		this.ativar();
 	}
